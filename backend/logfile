@@ -1,0 +1,142 @@
+2024-10-06 21:50:30.105 PDT [24968] LOG:  starting PostgreSQL 14.13 (Homebrew) on aarch64-apple-darwin24.0.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.3), 64-bit
+2024-10-06 21:50:30.106 PDT [24968] LOG:  could not bind IPv6 address "::1": Address already in use
+2024-10-06 21:50:30.106 PDT [24968] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-10-06 21:50:30.106 PDT [24968] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2024-10-06 21:50:30.106 PDT [24968] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-10-06 21:50:30.106 PDT [24968] WARNING:  could not create listen socket for "localhost"
+2024-10-06 21:50:30.107 PDT [24968] FATAL:  could not create any TCP/IP sockets
+2024-10-06 21:50:30.107 PDT [24968] LOG:  database system is shut down
+2024-10-06 21:52:11.359 PDT [26147] LOG:  starting PostgreSQL 14.13 (Homebrew) on aarch64-apple-darwin24.0.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.3), 64-bit
+2024-10-06 21:52:11.360 PDT [26147] LOG:  listening on IPv6 address "::1", port 5432
+2024-10-06 21:52:11.360 PDT [26147] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-10-06 21:52:11.360 PDT [26147] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-10-06 21:52:11.362 PDT [26148] LOG:  database system was shut down at 2024-10-06 21:49:46 PDT
+2024-10-06 21:52:11.365 PDT [26147] LOG:  database system is ready to accept connections
+2024-10-06 21:54:28.138 PDT [27602] FATAL:  role "keiakihito" does not exist
+2024-10-06 21:59:11.470 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:12.168 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:12.168 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:12.863 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:12.863 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:13.560 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:13.560 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:14.256 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:14.256 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:14.956 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:14.956 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:15.666 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:15.666 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:16.362 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:16.362 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:17.062 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:17.062 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:17.554 PDT [32857] LOG:  starting PostgreSQL 14.13 (Homebrew) on aarch64-apple-darwin24.0.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.3), 64-bit
+2024-10-06 21:59:17.554 PDT [32857] LOG:  could not bind IPv6 address "::1": Address already in use
+2024-10-06 21:59:17.554 PDT [32857] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-10-06 21:59:17.554 PDT [32857] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2024-10-06 21:59:17.554 PDT [32857] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-10-06 21:59:17.554 PDT [32857] WARNING:  could not create listen socket for "localhost"
+2024-10-06 21:59:17.555 PDT [32857] FATAL:  could not create any TCP/IP sockets
+2024-10-06 21:59:17.555 PDT [32857] LOG:  database system is shut down
+2024-10-06 21:59:17.762 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:17.762 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:18.461 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:18.461 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:19.159 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:19.159 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:19.860 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:19.860 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:20.559 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:20.559 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:21.256 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:21.256 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:21.950 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:21.950 PDT [26153] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-06 21:59:22.389 PDT [26152] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2024-10-06 21:59:28.176 PDT [26147] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-06 21:59:28.176 PDT [26147] LOG:  performing immediate shutdown because data directory lock file is invalid
+2024-10-06 21:59:28.176 PDT [26147] LOG:  received immediate shutdown request
+2024-10-06 21:59:28.176 PDT [26147] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-06 21:59:28.177 PDT [26153] LOG:  could not open temporary statistics file "pg_stat/global.tmp": No such file or directory
+2024-10-06 21:59:28.179 PDT [26147] LOG:  database system is shut down
+2024-10-06 22:02:19.749 PDT [35049] LOG:  starting PostgreSQL 14.13 (Homebrew) on aarch64-apple-darwin24.0.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.3), 64-bit
+2024-10-06 22:02:19.750 PDT [35049] LOG:  listening on IPv6 address "::1", port 5432
+2024-10-06 22:02:19.750 PDT [35049] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-10-06 22:02:19.750 PDT [35049] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-10-06 22:02:19.752 PDT [35050] LOG:  database system was shut down at 2024-10-06 22:02:14 PDT
+2024-10-06 22:02:19.754 PDT [35049] LOG:  database system is ready to accept connections
+2024-10-06 22:03:13.950 PDT [35696] FATAL:  role "postgres" does not exist
+2024-10-06 22:03:40.231 PDT [35965] FATAL:  database "keita-katsumi" does not exist
+2024-10-06 22:03:57.259 PDT [35049] LOG:  received fast shutdown request
+2024-10-06 22:03:57.259 PDT [35049] LOG:  aborting any active transactions
+2024-10-06 22:03:57.260 PDT [35049] LOG:  background worker "logical replication launcher" (PID 35056) exited with exit code 1
+2024-10-06 22:03:57.260 PDT [35051] LOG:  shutting down
+2024-10-06 22:03:57.265 PDT [35049] LOG:  database system is shut down
+2024-10-06 22:05:18.630 PDT [37423] LOG:  starting PostgreSQL 14.13 (Homebrew) on aarch64-apple-darwin24.0.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.3), 64-bit
+2024-10-06 22:05:18.631 PDT [37423] LOG:  listening on IPv6 address "::1", port 5432
+2024-10-06 22:05:18.631 PDT [37423] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-10-06 22:05:18.631 PDT [37423] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-10-06 22:05:18.634 PDT [37424] LOG:  database system was shut down at 2024-10-06 22:04:48 PDT
+2024-10-06 22:05:18.636 PDT [37423] LOG:  database system is ready to accept connections
+2024-10-06 22:05:25.704 PDT [37490] FATAL:  role "postgres" does not exist
+2024-10-06 22:07:58.741 PDT [39083] FATAL:  database "basket_search_db" does not exist
+2024-10-07 10:33:55.925 PDT [66887] FATAL:  database "basket_search_db" does not exist
+2024-10-07 11:02:02.937 PDT [84338] ERROR:  insert or update on table "shot" violates foreign key constraint "shot_game_stats_id_fkey"
+2024-10-07 11:02:02.937 PDT [84338] DETAIL:  Key (game_stats_id)=(1) is not present in table "player_stats".
+2024-10-07 11:02:02.937 PDT [84338] STATEMENT:  
+	    INSERT INTO shot (shot_id, game_stats_id, player_id, is_make, location_x, location_y)
+	    VALUES (DEFAULT, 1, 17, true, 0.2, 25.1)
+	    
+2024-10-07 11:10:05.758 PDT [89525] ERROR:  column "player_stats_id" of relation "shot" does not exist at character 33
+2024-10-07 11:10:05.758 PDT [89525] STATEMENT:  
+	    INSERT INTO shot (shot_id, player_stats_id, player_id, is_make, location_x, location_y)
+	    VALUES (DEFAULT, 1, 17, true, 0.2, 25.1)
+	    
+2024-10-07 18:11:11.179 PDT [391] ERROR:  update or delete on table "player_stats" violates foreign key constraint "shot_game_stats_id_fkey" on table "shot"
+2024-10-07 18:11:11.179 PDT [391] DETAIL:  Key (player_stats_id)=(2) is still referenced from table "shot".
+2024-10-07 18:11:11.179 PDT [391] STATEMENT:  DELETE FROM player_stats
+2024-10-07 18:11:31.255 PDT [391] ERROR:  update or delete on table "player_stats" violates foreign key constraint "shot_game_stats_id_fkey" on table "shot"
+2024-10-07 18:11:31.255 PDT [391] DETAIL:  Key (player_stats_id)=(2) is still referenced from table "shot".
+2024-10-07 18:11:31.255 PDT [391] STATEMENT:  DELETE FROM player_stats
+2024-10-07 18:11:36.042 PDT [391] ERROR:  update or delete on table "player_stats" violates foreign key constraint "shot_game_stats_id_fkey" on table "shot"
+2024-10-07 18:11:36.042 PDT [391] DETAIL:  Key (player_stats_id)=(2) is still referenced from table "shot".
+2024-10-07 18:11:36.042 PDT [391] STATEMENT:  DELETE FROM player_stats
+2024-10-07 18:11:41.953 PDT [391] ERROR:  update or delete on table "player_stats" violates foreign key constraint "shot_game_stats_id_fkey" on table "shot"
+2024-10-07 18:11:41.953 PDT [391] DETAIL:  Key (player_stats_id)=(2) is still referenced from table "shot".
+2024-10-07 18:11:41.953 PDT [391] STATEMENT:  DELETE FROM player_stats
+2024-10-07 20:52:23.163 PDT [24386] FATAL:  database "keita-katsumi" does not exist
+2024-10-07 21:14:03.326 PDT [37813] FATAL:  database "keita-katsumi" does not exist
+2024-10-07 21:16:23.357 PDT [39255] ERROR:  insert or update on table "team" violates foreign key constraint "team_league_id_fkey"
+2024-10-07 21:16:23.357 PDT [39255] DETAIL:  Key (league_id)=(1) is not present in table "league".
+2024-10-07 21:16:23.357 PDT [39255] STATEMENT:  INSERT INTO team (team_id, name, league_id) VALUES (1, 'Tune Squad', 1)
+2024-10-07 21:16:23.358 PDT [39255] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2024-10-07 21:16:23.358 PDT [39255] STATEMENT:  INSERT INTO team (team_id, name, league_id) VALUES (2, 'Monstars', 1)
+2024-10-07 21:46:13.964 PDT [391] ERROR:  cannot drop table league because other objects depend on it
+2024-10-07 21:46:13.964 PDT [391] DETAIL:  constraint team_league_id_fkey on table team depends on table league
+2024-10-07 21:46:13.964 PDT [391] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2024-10-07 21:46:13.964 PDT [391] STATEMENT:  DROP TABLE league
+2024-10-07 21:47:33.887 PDT [391] ERROR:  cannot drop table league because other objects depend on it
+2024-10-07 21:47:33.887 PDT [391] DETAIL:  constraint team_league_id_fkey on table team depends on table league
+2024-10-07 21:47:33.887 PDT [391] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2024-10-07 21:47:33.887 PDT [391] STATEMENT:  DROP TABLE league
+2024-10-07 21:47:56.885 PDT [391] ERROR:  syntax error at end of input at character 13
+2024-10-07 21:47:56.885 PDT [391] STATEMENT:  SELECT *FROM
+2024-10-07 21:48:01.530 PDT [391] ERROR:  syntax error at end of input at character 13
+2024-10-07 21:48:01.530 PDT [391] STATEMENT:  SELECT *FROM
+2024-10-07 21:48:05.702 PDT [391] ERROR:  syntax error at end of input at character 14
+2024-10-07 21:48:05.702 PDT [391] STATEMENT:  SELECT * FROM
+2024-10-07 21:49:01.508 PDT [391] ERROR:  cannot drop table league because other objects depend on it
+2024-10-07 21:49:01.508 PDT [391] DETAIL:  constraint team_league_id_fkey on table team depends on table league
+2024-10-07 21:49:01.508 PDT [391] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2024-10-07 21:49:01.508 PDT [391] STATEMENT:  DROP TABLE league
+2024-10-07 21:49:53.800 PDT [391] ERROR:  cannot drop table league because other objects depend on it
+2024-10-07 21:49:53.800 PDT [391] DETAIL:  constraint team_league_id_fkey on table team depends on table league
+2024-10-07 21:49:53.800 PDT [391] HINT:  Use DROP ... CASCADE to drop the dependent objects too.
+2024-10-07 21:49:53.800 PDT [391] STATEMENT:  DROP TABLE league
+2024-10-07 22:08:03.937 PDT [37429] LOG:  could not open temporary statistics file "pg_stat_tmp/global.tmp": No such file or directory
+2024-10-07 22:08:03.965 PDT [37423] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-07 22:08:03.965 PDT [37423] LOG:  performing immediate shutdown because data directory lock file is invalid
+2024-10-07 22:08:03.965 PDT [37423] LOG:  received immediate shutdown request
+2024-10-07 22:08:03.965 PDT [37423] LOG:  could not open file "postmaster.pid": No such file or directory
+2024-10-07 22:08:03.971 PDT [37429] LOG:  could not open temporary statistics file "pg_stat/global.tmp": No such file or directory
+2024-10-07 22:08:03.977 PDT [37423] LOG:  database system is shut down

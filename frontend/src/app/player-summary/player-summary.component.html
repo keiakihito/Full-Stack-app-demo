@@ -1,0 +1,95 @@
+<div class="content-container">
+  <h1>Player Summary Search</h1>
+
+<!--  <div class="search-container">-->
+<!--    <mat-form-field appearance="outline">-->
+<!--      <input matInput [(ngModel)]="playerName" placeholder="Search for a player" (input)="onSearchInputChange($event)">-->
+<!--    </mat-form-field>-->
+<!--    <button mat-raised-button color="primary" (click)="searchPlayer()">Search</button>-->
+<!--  </div>-->
+
+  <div class="search-container">
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="playerName" placeholder="Search for a player" (input)="onSearchInputChange($event)" (keydown.enter)="onEnterPress()">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="searchPlayer()">Search</button>
+  </div>
+
+  <!-- Autocomplete dropdown for player suggestions -->
+  <mat-list *ngIf="playerSuggestions.length > 0" class="autocomplete-list">
+    <mat-list-item
+      *ngFor="let player of playerSuggestions"
+      (click)="onPlayerSelect(player.id)"
+      class="autocomplete-item"
+      (mouseover)="highlight(player)"
+      (mouseleave)="removeHighlight(player)">
+      {{ player.name }}
+    </mat-list-item>
+  </mat-list>
+
+  <!-- Displaying the game as a carousel -->
+  <div *ngIf="apiResponse && apiResponse.games.length > 0">
+    <h2>{{ apiResponse.name }}'s Game Stats</h2>
+
+    <div class="carousel">
+      <!-- Left arrow (only show if not on the first game) -->
+      <button *ngIf="currentGameIndex > 0" (click)="prevGame()" mat-icon-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <div class="game-details">
+        <h3>Game {{ currentGameIndex + 1 }} of {{ apiResponse.games.length }}</h3>
+
+          <table class="game-stats-table-vertical">
+            <tbody>
+            <tr><th>Date</th><td>{{ apiResponse.games[currentGameIndex].date }}</td></tr>
+            <tr><th>Starter</th><td>{{ apiResponse.games[currentGameIndex].is_starter ? 'Yes' : 'No' }}</td></tr>
+            <tr><th>Minutes</th><td>{{ apiResponse.games[currentGameIndex].minutes }}</td></tr>
+            <tr><th>Points</th><td>{{ apiResponse.games[currentGameIndex].points }}</td></tr>
+            <tr><th>Assists</th><td>{{ apiResponse.games[currentGameIndex].assists }}</td></tr>
+            <tr><th>Offensive Rebounds</th><td>{{ apiResponse.games[currentGameIndex].offensive_rebounds }}</td></tr>
+            <tr><th>Defensive Rebounds</th><td>{{ apiResponse.games[currentGameIndex].defensive_rebounds }}</td></tr>
+            <tr><th>Steals</th><td>{{ apiResponse.games[currentGameIndex].steals }}</td></tr>
+            <tr><th>Blocks</th><td>{{ apiResponse.games[currentGameIndex].blocks }}</td></tr>
+            <tr><th>Turnovers</th><td>{{ apiResponse.games[currentGameIndex].turnovers }}</td></tr>
+            <tr><th>Defensive Fouls</th><td>{{ apiResponse.games[currentGameIndex].defensive_fouls }}</td></tr>
+            <tr><th>Offensive Fouls</th><td>{{ apiResponse.games[currentGameIndex].offensive_fouls }}</td></tr>
+            <tr><th>Free Throws Made</th><td>{{ apiResponse.games[currentGameIndex].free_throws_made }}</td></tr>
+            <tr><th>Free Throws Attempted</th><td>{{ apiResponse.games[currentGameIndex].free_throws_attempted }}</td></tr>
+            <tr><th>Two Pointers Made</th><td>{{ apiResponse.games[currentGameIndex].two_pointers_made }}</td></tr>
+            <tr><th>Two Pointers Attempted</th><td>{{ apiResponse.games[currentGameIndex].two_pointers_attempted }}</td></tr>
+            <tr><th>Three Pointers Made</th><td>{{ apiResponse.games[currentGameIndex].three_pointers_made }}</td></tr>
+            <tr><th>Three Pointers Attempted</th><td>{{ apiResponse.games[currentGameIndex].three_pointers_attempted }}</td></tr>
+            </tbody>
+          </table>
+
+          <button mat-raised-button color="primary" (click)="viewShots()">View Shots</button>
+      </div>
+
+      <!-- Right arrow (only show if not on the last game) -->
+      <button *ngIf="currentGameIndex < apiResponse.games.length - 1" (click)="nextGame()" mat-icon-button>
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Shot visualization on the court diagram -->
+  <div *ngIf="showShots">
+    <div class="approximate-shots-text">
+      <h4>Approximate Shooting Points</h4>
+    </div>
+    <div class="court-diagram">
+      <img src="assets/court_diagram.jpg" alt="Court Diagram">
+      <div *ngFor="let shot of apiResponse.games[currentGameIndex].shots"
+           class="shot-marker"
+           [ngStyle]="getShotStyle(shot)">
+        <mat-icon *ngIf="shot.is_make" class="make">check_circle</mat-icon>
+        <mat-icon *ngIf="!shot.is_make" class="miss">cancel</mat-icon>
+      </div>
+    </div>
+  </div>
+
+
+

@@ -1,0 +1,78 @@
+2024-10-07 22:07:59.864 PDT [78751] LOG:  starting PostgreSQL 14.13 (Homebrew) on aarch64-apple-darwin24.0.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.3), 64-bit
+2024-10-07 22:07:59.866 PDT [78751] LOG:  could not bind IPv6 address "::1": Address already in use
+2024-10-07 22:07:59.866 PDT [78751] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-10-07 22:07:59.866 PDT [78751] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2024-10-07 22:07:59.866 PDT [78751] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2024-10-07 22:07:59.866 PDT [78751] WARNING:  could not create listen socket for "localhost"
+2024-10-07 22:07:59.866 PDT [78751] FATAL:  could not create any TCP/IP sockets
+2024-10-07 22:07:59.866 PDT [78751] LOG:  database system is shut down
+2024-10-07 22:08:15.375 PDT [78917] LOG:  starting PostgreSQL 14.13 (Homebrew) on aarch64-apple-darwin24.0.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.3), 64-bit
+2024-10-07 22:08:15.377 PDT [78917] LOG:  listening on IPv6 address "::1", port 5432
+2024-10-07 22:08:15.377 PDT [78917] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-10-07 22:08:15.377 PDT [78917] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-10-07 22:08:15.380 PDT [78918] LOG:  database system was shut down at 2024-10-07 22:07:10 PDT
+2024-10-07 22:08:15.383 PDT [78917] LOG:  database system is ready to accept connections
+2024-10-07 22:09:07.397 PDT [79643] FATAL:  role "postgres" does not exist
+2024-10-07 22:14:56.612 PDT [83154] ERROR:  permission denied for database okc
+2024-10-07 22:14:56.612 PDT [83154] STATEMENT:  CREATE SCHEMA app;
+2024-10-08 07:18:37.329 PDT [15575] ERROR:  syntax error at or near "CASCASE" at character 20
+2024-10-08 07:18:37.329 PDT [15575] STATEMENT:  DROP SCHEMA public CASCASE;
+2024-10-08 07:18:45.316 PDT [15575] ERROR:  must be owner of schema public
+2024-10-08 07:18:45.316 PDT [15575] STATEMENT:  DROP SCHEMA public CASCADE;
+2024-10-08 07:19:28.790 PDT [16229] FATAL:  role "postgres" does not exist
+2024-10-08 07:19:41.675 PDT [16337] FATAL:  role "postgres" does not exist
+2024-10-08 07:19:48.225 PDT [16448] FATAL:  role "postgres" does not exist
+2024-10-08 08:13:17.296 PDT [49282] ERROR:  relation "team" does not exist at character 15
+2024-10-08 08:13:17.296 PDT [49282] STATEMENT:  SELECT * FROM team
+2024-10-08 08:13:21.747 PDT [49282] ERROR:  relation "app_team" does not exist at character 15
+2024-10-08 08:13:21.747 PDT [49282] STATEMENT:  SELECT * FROM app_team
+2024-10-08 08:15:23.210 PDT [49282] ERROR:  relation "app.team" does not exist at character 15
+2024-10-08 08:15:23.210 PDT [49282] STATEMENT:  SELECT * FROM app."team"
+2024-10-08 08:15:31.363 PDT [49282] ERROR:  relation "app.team" does not exist at character 15
+2024-10-08 08:15:31.363 PDT [49282] STATEMENT:  SELECT * FROM app.team
+2024-10-08 09:58:34.557 PDT [49282] ERROR:  relation "app.game" does not exist at character 15
+2024-10-08 09:58:34.557 PDT [49282] STATEMENT:  SELECT * FROM app.game
+2024-10-08 09:58:50.169 PDT [49282] ERROR:  relation "app.player" does not exist at character 15
+2024-10-08 09:58:50.169 PDT [49282] STATEMENT:  SELECT * FROM app.player
+2024-10-08 09:59:27.826 PDT [49282] ERROR:  relation "app.app_player_stats" does not exist at character 15
+2024-10-08 09:59:27.826 PDT [49282] STATEMENT:  SELECT * FROM app.app_player_stats
+2024-10-09 17:28:10.019 PDT [8237] ERROR:  null value in column "defensive_fouls" of relation "app_playerstats" violates not-null constraint
+2024-10-09 17:28:10.019 PDT [8237] DETAIL:  Failing row contains (1, t, 38, 28, 6, 0, 3, 1, 0, 4, null, null, 4, 4, 3, 5, 6, 12, 101, 1).
+2024-10-09 17:28:10.019 PDT [8237] STATEMENT:  INSERT INTO "app_playerstats" ("player_id", "game_id", "is_starter", "minutes", "points", "assists", "offensive_rebounds", "defensive_rebounds", "steals", "blocks", "turnovers", "defensive_fouls", "offensive_fouls", "free_throws_made", "free_throws_attempted", "two_pointers_made", "two_pointers_attempted", "three_pointers_made", "three_pointers_attempted") VALUES (1, 101, true, 38, 28, 6, 0, 3, 1, 0, 4, NULL, NULL, 4, 4, 3, 5, 6, 12) RETURNING "app_playerstats"."player_stats_id"
+2024-10-09 17:29:39.854 PDT [9280] ERROR:  null value in column "player_id" of relation "app_shot" violates not-null constraint
+2024-10-09 17:29:39.854 PDT [9280] DETAIL:  Failing row contains (1, t, 15, 20, null, 1).
+2024-10-09 17:29:39.854 PDT [9280] STATEMENT:  INSERT INTO "app_shot" ("player_stats_id", "player_id", "is_make", "location_x", "location_y") VALUES (1, NULL, true, 15.0, 20.0) RETURNING "app_shot"."shot_id"
+2024-10-09 17:31:45.586 PDT [10641] ERROR:  insert or update on table "app_player" violates foreign key constraint "app_player_team_id_83b1eb99_fk_app_team_team_id"
+2024-10-09 17:31:45.586 PDT [10641] DETAIL:  Key (team_id)=(23) is not present in table "app_team".
+2024-10-09 17:31:45.586 PDT [10641] STATEMENT:  SET CONSTRAINTS ALL IMMEDIATE
+2024-10-09 17:35:03.956 PDT [12775] ERROR:  insert or update on table "app_player" violates foreign key constraint "app_player_team_id_83b1eb99_fk_app_team_team_id"
+2024-10-09 17:35:03.956 PDT [12775] DETAIL:  Key (team_id)=(1) is not present in table "app_team".
+2024-10-09 17:35:03.956 PDT [12775] STATEMENT:  SET CONSTRAINTS ALL IMMEDIATE
+2024-10-09 20:28:33.358 PDT [19848] ERROR:  insert or update on table "app_player" violates foreign key constraint "app_player_team_id_83b1eb99_fk_app_team_team_id"
+2024-10-09 20:28:33.358 PDT [19848] DETAIL:  Key (team_id)=(100) is not present in table "app_team".
+2024-10-09 20:28:33.358 PDT [19848] STATEMENT:  SET CONSTRAINTS ALL IMMEDIATE
+2024-10-09 20:31:09.149 PDT [21453] ERROR:  insert or update on table "app_player" violates foreign key constraint "app_player_team_id_83b1eb99_fk_app_team_team_id"
+2024-10-09 20:31:09.149 PDT [21453] DETAIL:  Key (team_id)=(2) is not present in table "app_team".
+2024-10-09 20:31:09.149 PDT [21453] STATEMENT:  SET CONSTRAINTS ALL IMMEDIATE
+2024-10-09 20:33:20.932 PDT [22940] ERROR:  null value in column "player_id" of relation "app_shot" violates not-null constraint
+2024-10-09 20:33:20.932 PDT [22940] DETAIL:  Failing row contains (1, t, 25, 50, null, 1).
+2024-10-09 20:33:20.932 PDT [22940] STATEMENT:  INSERT INTO "app_shot" ("player_stats_id", "player_id", "is_make", "location_x", "location_y") VALUES (1, NULL, true, 25.0, 50.0) RETURNING "app_shot"."shot_id"
+2024-10-09 20:33:53.296 PDT [23346] ERROR:  null value in column "player_id" of relation "app_shot" violates not-null constraint
+2024-10-09 20:33:53.296 PDT [23346] DETAIL:  Failing row contains (1, t, 25, 50, null, 1).
+2024-10-09 20:33:53.296 PDT [23346] STATEMENT:  INSERT INTO "app_shot" ("player_stats_id", "is_make", "location_x", "location_y") VALUES (1, true, 25.0, 50.0) RETURNING "app_shot"."shot_id"
+2024-10-09 20:39:47.101 PDT [26745] ERROR:  syntax error at or near "app" at character 1
+2024-10-09 20:39:47.101 PDT [26745] STATEMENT:  app.app_shot;
+2024-10-09 20:52:36.550 PDT [35336] ERROR:  column "player_id" of relation "app_shot" contains null values
+2024-10-09 20:52:36.550 PDT [35336] STATEMENT:  ALTER TABLE "app_shot" ADD COLUMN "player_id" integer NOT NULL CONSTRAINT "app_shot_player_id_0107d689_fk_app_player_player_id" REFERENCES "app_player"("player_id") DEFERRABLE INITIALLY DEFERRED; SET CONSTRAINTS "app_shot_player_id_0107d689_fk_app_player_player_id" IMMEDIATE
+2024-10-09 21:01:53.424 PDT [41176] ERROR:  syntax error at or near "app" at character 1
+2024-10-09 21:01:53.424 PDT [41176] STATEMENT:  app.app_shot;
+2024-10-09 21:19:33.416 PDT [51844] ERROR:  relation "app_playerstats" does not exist at character 15
+2024-10-09 21:19:33.416 PDT [51844] STATEMENT:  SELECT * FROM app_playerstats;
+2024-10-09 21:19:58.637 PDT [51844] ERROR:  relation "app_shot" does not exist at character 15
+2024-10-09 21:19:58.637 PDT [51844] STATEMENT:  SELECT * FROM app_shot;
+2024-10-09 21:31:14.020 PDT [60085] ERROR:  schema "public" does not exist
+2024-10-09 21:31:14.020 PDT [60085] STATEMENT:  DROP SCHEMA public CASCADE;
+2024-10-09 21:33:00.198 PDT [61639] ERROR:  relation "app_game" already exists
+2024-10-09 21:33:00.198 PDT [61639] STATEMENT:  CREATE TABLE "app_game" ("game_id" integer NOT NULL PRIMARY KEY, "date" date NOT NULL)
+2024-10-09 22:00:46.476 PDT [26502] ERROR:  relation "app.app_plyaer_stats" does not exist at character 15
+2024-10-09 22:00:46.476 PDT [26502] STATEMENT:  SELECT * FROM app.app_plyaer_stats

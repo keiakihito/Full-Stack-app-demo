@@ -1,0 +1,144 @@
+:host {
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; // Adds space between the input and the button
+  }
+
+  .search-container {
+    position: relative;  /* Makes the autocomplete list position relative to this container */
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Adds space between the input and the search button */
+  }
+
+
+
+  .autocomplete-list {
+    //position: absolute;
+    top: 100%;
+    left: 50%;  /* Start from the center */
+    transform: translateX(-50%);  /* Shift the dropdown back by half its width to center it */
+    width: 200px;  /* Adjust the width to your preference */
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    margin-top: 5px;
+  }
+
+  .autocomplete-item {
+    padding: 5px;  /* Reduce the padding for smaller items */
+    font-size: 14px;  /* Smaller font size */
+    border-bottom: 1px solid #ddd;
+  }
+
+  .autocomplete-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .autocomplete-item:last-child {
+    border-bottom: none;
+  }
+
+
+
+
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content horizontally */
+    justify-content: center;
+    text-align: center; /* Centers the text inside elements */
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .game-stats {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .game-details {
+    margin: 0 20px;
+  }
+
+  .game-stats-table-vertical {
+    margin-top: 20px;
+  }
+
+  .court-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .court-diagram {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .shot-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
+  .make {
+    color: green;
+  }
+
+  .miss {
+    color: red;
+  }
+
+  .court-diagram {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .court-diagram img {
+    max-width: 600px; /* Set a maximum width */
+    width: 100%;      /* Ensure it scales within the available width */
+    height: auto;     /* Maintain the aspect ratio */
+  }
+
+  .shot-marker {
+    position: absolute;
+    transform: translate(-50%, -50%); /* Center the shot marker */
+  }
+
+  .approximate-shots-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Light background for the box */
+    border: 2px solid #ccc; /* Border for the box */
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .approximate-shots-text h4 {
+    font-size: 24px; /* Bigger text size */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Text color */
+  }
+
+}
