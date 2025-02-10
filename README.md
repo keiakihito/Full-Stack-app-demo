@@ -1,111 +1,123 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/UDc3mhmF)
+# Full-Stack Engineering: Player Search & Summary System
 
-# OKC Technical Project Deliverable
+![Player Autocomplete](images/demo1.png)  
+*Autocomplete search feature for player names*
 
-### Internship Program Disclosures
-
-* You must be eligible to work in the United States to be able to qualify for this internship.
-  
-* The pay for this internship is the greater of your local minimum wage and $13/hour.
-
-* This application is for the purposes of an internship taking place in the Spring, Summer, or Fall of 2025.
-
-### 1. Backend Engineering
-
-* Architect and implement a normalized PostgreSQL database to store the data provided in `backend/raw_data`. All information from the original data should be accessible via the database.
-
-* Write a brief description of your database architecture (<250 words). Feel free to provide a visual representation as an aide. Submit relevant responses in the `written_responses` folder provided.
-
-* In the programming language of your choice, write a process to load the dataset into your PostgreSQL database. Ensure that this process can run repeatedly without duplicating or obscuring references in the database. Include the source code of your process in the `backend/scripts` folder. Note: You can feel free to utilize the power of Django models and migrations to achieve this step.
-
-* After loading the data, export the state of your database using `pg_dump -U okcapplicant okc > dbexport.pgsql`. Include `dbexport.psql` in the `backend/scripts` folder.
-
-* The skeleton of an API View `PlayerSummary` can be found in `backend/app/views/players.py`. Implement this API to return a player summary that mimics the structure of `backend/app/views/sample_response/sample_response.json`. Feel free to import additional modules/libraries in order to do this, but ensure that the `backend/requirements.txt` is updated accordingly. Viewing http://localhost:4200/player-summary-api allows you to see the output of your API, given the playerID parameter provided in the user input.
-
-### 2. Frontend Engineering
-
-* The `player-summary` component, which is viewable at http://localhost:4200/player-summary, makes a call to an API endpoint at `/api/v1/playerSummary/{playerID}` that returns player summary data. One component of the player summary data are the player's shots in each game, note that:
-
-   * The shot's x and y coordinates are provided and are measured in feet
-   * The location of each shot is relative to the center of the basket, per `court_diagram.jpg` in this repository
-
-* Within the `player-summary` component found in `frontend/src/app/player-summary/`, create an interface that describes the player summary data returned from the API.
-
-* Feel free to import additional modules of your choice, and design the interface however you wish. Just make sure that the `package.json` and `package-lock.json` are updated accordingly.
-
-* Upon completion of the Frontend Engineering deliverable, please upload to this repo screenshots or screen captures that demonstrate your UI.
+![Player Summary UI](images/demo2.png)  
+*Frontend UI displaying player summary*
 
 
-# Application Setup
-In order to complete the Backend Engineering or Frontend Engineering deliverables, you will need to do all of the following setup items. Please follow the instructions below, from top to bottom sequentially, to ensure that you are set up to run the app. The app is run on an Angular frontend, Django backend, and a PostgreSQL database.
+## Project Overview
+This project showcases a full-stack implementation designed for a sports analytics application. It includes:
 
-## Set up database
-1. Download and install PostgreSQL from https://www.postgresql.org/download/
-2. Ensure PostgreSQL is running, and in a terminal run
-    ```
-    createuser okcapplicant --createdb;
-    createdb okc;
-    ```
-3. connect to the okc database to grant permissions `psql okc`
-    ```
-    create schema app;
-    alter user okcapplicant with password 'thunder';
-    grant all on schema app to okcapplicant;
-    ```
+- **Database Design**: PostgreSQL schema for structured player statistics
+- **Backend Engineering**: Django-based API with modular SOLID principles
+- **Frontend Engineering**: Angular UI with autocomplete player search
+- **Performance Optimization**: Trie-based autocomplete and Django caching
 
+### Key Technologies
+- **Backend:** Django, PostgreSQL, Django ORM, Caching
+- **Frontend:** Angular, TypeScript, API Integration
+- **Architecture:** Multi-layered (Controller, Handler, DataLoader)
+- **Efficiency:** Trie Data Structure, Autocomplete, Caching
 
-## Backend
+---
 
-### 1. Install pyenv and virtualenv
+## Database Architecture
+The PostgreSQL database is structured into five normalized tables for efficient data retrieval:
 
-Read about pyenv here https://github.com/pyenv/pyenv as well as info on how to install it.
-You may also need to install virtualenv in order to complete step 2.
+| Entity       | Description  |
+|-------------|-------------|
+| **Team**    | Stores team details, linking multiple players |
+| **Player**  | Represents individual player data, linked to a team |
+| **Game**    | Tracks game metadata, including teams and date |
+| **PlayerStats** | Stores per-game player stats (points, assists, rebounds) |
+| **Shot**    | Records individual shot attempts, success, and location |
 
-### 2. Installing Prerequisites
-The steps below attempt to install Python version 3.10.1 within your pyenv environment. If you computer is unable to install this particular version, you can feel free to use a version that works for you, but note that you may also be required to update existing parts of the codebase to make it compatible with your installed version.
-```
-cd root/of/project
-pyenv install 3.10.1
-pyenv virtualenv 3.10.1 okc
-pyenv local okc
-eval "$(pyenv init -)" (may or may not be necessary)
-pip install -r backend/requirements.txt
-```
+Foreign keys ensure data integrity, linking player stats to games and teams.  
+Data is structured to allow fast queries, supporting scalable analytics.
 
-### 3. Starting the Backend
-Start the backend by running the following commands
-```
-cd /path/to/project/backend
-python manage.py runserver
-```
-The backend should run on http://localhost:8000/.
+### **Database Schema**
+**[View Database Schema (PDF)](Diagram/DatabaseSchema.pdf)**  
+
+---
 
 
-## Frontend
+## System Architecture
 
-### 1. Installing Prerequisites
-Install Node.js (16.x.x), then run the following commands
-```
-cd /path/to/project/frontend
-# Install Angular-Cli
-npm install -g @angular/cli@12.1.0 typescript@4.6.4 --force
-# Install dependencies
-npm install --force
-```
+### Multi-Layered Design for Scalability
+To ensure modularity and maintainability, the backend follows SOLID principles and a three-layered architecture:
 
-### 2. Starting the Frontend
-Start the frontend by running the following commands
-```
-cd /path/to/project/frontend
-npm start
-```
-The frontend should run on http://localhost:4200/. Visit this address to see the app in your browser.
+1. **Controller Layer**  
+   - Handles API requests, including player search and summary retrieval.  
+   - Communicates with handlers to format data.
+
+2. **Handler Layer**  
+   - Processes business logic, structures API responses.  
+   - Converts database data into player summary objects.
+
+3. **DataLoader Layer**  
+   - Manages database interactions, ensuring optimized queries.  
+   - Uses Django ORM for structured access to player stats and game data.
+
+### Why This Design?
+- **Separation of concerns**: Each layer has a clear responsibility.
+- **Modularity**: Easily testable and extendable without breaking dependencies.
+- **Scalability**: New features (e.g., team analytics) can be added seamlessly.
+
+### **System Architecture Design**
+ **[View System Architecture (PDF)](Diagram/SystemArchitectureDiagram.pdf)**  
 
 
-# SUBMISSION.md
-Please fill out the SUBMISSION.md file to ensure we have your name attached to the project.
+---
+
+## Key Features
+
+### 1. Autocomplete Player Search
+- Fast player name search using a Trie data structure.
+- Reduces search complexity by storing player names and IDs in a Trie.
+- Provides instant suggestions while typing.
+
+### 2. Optimized Player Summary API
+- Efficient API to retrieve player statistics per game.
+- Returns structured JSON output for frontend visualization.
+- Django Caching minimizes redundant database queries, improving performance.
+
+### 3. Frontend Implementation (Angular)
+- Dynamic UI for searching players and viewing detailed stats.
+- Responsive interface powered by Angular components.
+- Screenshots included in `frontend/screenshots/` to showcase the UI.
 
 
-# Questions?
+### **UML Diagram**
+ **[View UML Diagram (PDF)](Diagram/UML.pdf)**  
 
-Email datasolutions@okcthunder.com
+
+---
+
+## Conclusion: Key Learnings and Future Scalability
+
+### Full-Stack Experience
+This project provided valuable experience in **full-stack software development**, covering:
+
+- **Data Handling:** Loading and processing raw data into a structured PostgreSQL database.
+- **Database Design:** Normalizing tables and ensuring efficient data retrieval.
+- **System Architecture:** Applying **SOLID principles** to build a **modular, scalable, and maintainable** backend.
+- **Backend Implementation:** Using Django ORM, caching, and optimized data access patterns.
+- **Frontend Development:** Designing an **interactive UI with Angular** and integrating it with the backend API.
+- **Testing & Optimization:** Ensuring functional correctness and performance improvements, such as Trie-based autocomplete and caching.
+
+### Applying SOLID Principles to Software Design
+By following **SOLID design principles**, the project achieves:
+
+- **Modularity:** Code is well-structured with clear responsibilities for each component.
+- **Scalability:** The architecture supports future extensions **without modifying existing functionality**.
+- **Maintainability:** The layered structure allows for easy debugging, testing, and future improvements.
+
+### Future Scalability and Extensions
+This system is designed for **future scalability**, allowing for enhancements such as:
+
+- **Expanding beyond players** to include **teams, leagues, and game history** for broader analytics.
+- **Incorporating genetic and performance data** to track player evolution over time.
+- **Optimizing search algorithms** with **AI-driven autocomplete** or **personalized recommendations**.
+- **Enhancing frontend visualization** with **interactive charts and real-time statistics**.

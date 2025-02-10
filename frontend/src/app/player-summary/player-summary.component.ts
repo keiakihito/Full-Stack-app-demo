@@ -141,8 +141,8 @@ export class PlayerSummaryComponent implements OnInit {
   }
 
   getShotStyle(shot: any) {
-    const courtWidth = 600; // Width of your court image in pixels
-    const courtHeight = 470; // Height of your court image in pixels
+    const courtWidth = 600; // Width of your court images in pixels
+    const courtHeight = 470; // Height of your court images in pixels
 
     // Estimate of the actual court dimensions (in feet)
     const realCourtWidth = 44; // Real-world court width in feet (NBA regulation width)
