@@ -1,32 +1,21 @@
 <div class="content-container">
   <h1>Player Summary Search</h1>
 
-<!--  <div class="search-container">-->
-<!--    <mat-form-field appearance="outline">-->
-<!--      <input matInput [(ngModel)]="playerName" placeholder="Search for a player" (input)="onSearchInputChange($event)">-->
-<!--    </mat-form-field>-->
-<!--    <button mat-raised-button color="primary" (click)="searchPlayer()">Search</button>-->
-<!--  </div>-->
-
   <div class="search-container">
-    <mat-form-field appearance="outline">
-      <input matInput [(ngModel)]="playerName" placeholder="Search for a player" (input)="onSearchInputChange($event)" (keydown.enter)="onEnterPress()">
-    </mat-form-field>
+    <input type="text"
+           [(ngModel)]="playerName"
+           (input)="onSearchInputChange($event)"
+           (keydown)="onKeyDown($event)"
+           placeholder="Search players..." />
 
-    <button mat-raised-button color="primary" (click)="searchPlayer()">Search</button>
+    <ul *ngIf="playerSuggestions.length" class="dropdown">
+      <li *ngFor="let player of playerSuggestions; let i = index"
+          [class.active]="i === selectedIndex"
+          (click)="onPlayerSelect(player.id)">
+        {{ player.name }}
+      </li>
+    </ul>
   </div>
-
-  <!-- Autocomplete dropdown for player suggestions -->
-  <mat-list *ngIf="playerSuggestions.length > 0" class="autocomplete-list">
-    <mat-list-item
-      *ngFor="let player of playerSuggestions"
-      (click)="onPlayerSelect(player.id)"
-      class="autocomplete-item"
-      (mouseover)="highlight(player)"
-      (mouseleave)="removeHighlight(player)">
-      {{ player.name }}
-    </mat-list-item>
-  </mat-list>
 
   <!-- Displaying the game as a carousel -->
   <div *ngIf="apiResponse && apiResponse.games.length > 0">

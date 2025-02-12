@@ -1,15 +1,40 @@
 :host {
-  .search-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; // Adds space between the input and the button
-  }
 
   .search-container {
-    position: relative;  /* Makes the autocomplete list position relative to this container */
-    display: flex;
-    align-items: center;
-    gap: 10px;  /* Adds space between the input and the search button */
+    position: relative;
+    width: 300px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;  /* Moves the dropdown **below** the input box */
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0; /* Adds spacing between input and dropdown */
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000; /* Ensures the dropdown is on top of other elements */
+  }
+
+  .dropdown li {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .dropdown li.active {
+    background: lightblue;
   }
 
 
@@ -55,12 +80,6 @@
     text-align: center; /* Centers the text inside elements */
   }
 
-  .search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
   .game-stats {
     margin-top: 20px;
     text-align: center;
@@ -88,9 +107,13 @@
 
   .court-diagram {
     position: relative;
-    display: inline-block;
+    //display: inline-block;
+    display: flex;
     margin: 20px 0;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   .shot-marker {
@@ -106,21 +129,12 @@
     color: red;
   }
 
-  .court-diagram {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
   .court-diagram img {
-    max-width: 600px; /* Set a maximum width */
-    width: 100%;      /* Ensure it scales within the available width */
-    height: auto;     /* Maintain the aspect ratio */
-  }
-
-  .shot-marker {
-    position: absolute;
-    transform: translate(-50%, -50%); /* Center the shot marker */
+    max-width: 750px; /* Set a maximum width */
+    height: 600px; /* Maintain the aspect ratio */
+    width: 550px;      /* Ensure it scales within the available width */
+    display: block;
+    //margin: auto;
   }
 
   .approximate-shots-text {

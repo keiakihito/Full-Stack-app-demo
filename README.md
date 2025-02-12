@@ -1,10 +1,6 @@
 # Full-Stack Engineering: Player Search & Summary System
 
-![Player Autocomplete](images/demo1.png)  
-*Autocomplete search feature for player names*
-
-![Player Summary UI](images/demo2.png)  
-*Frontend UI displaying player summary*
+![Demo](images/demo.gif)
 
 
 ## Project Overview

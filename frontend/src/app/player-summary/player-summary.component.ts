@@ -14,6 +14,7 @@ export class PlayerSummaryComponent implements OnInit {
   apiResponse: any; // Holds the API response for the player summary
   currentGameIndex: number = 0; // To track the currently selected game
   showShots: boolean = false; // To toggle shots view
+  selectedIndex: number = -1;  // Track selected suggestion
 
   displayedColumns: string[] = [
     'date',
@@ -57,8 +58,20 @@ export class PlayerSummaryComponent implements OnInit {
     }
   }
 
+  onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      this.selectedIndex = Math.min(this.selectedIndex + 1, this.playerSuggestions.length - 1);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      this.selectedIndex = Math.max(this.selectedIndex - 1, 0);
+    } else if (event.key === 'Enter' && this.selectedIndex >= 0) {
+      event.preventDefault();
+      this.onPlayerSelect(this.playerSuggestions[this.selectedIndex].id);
+    }
+  }
 
-// Method to handle player selection
+  // Method to handle player selection
   onPlayerSelect(playerID: number): void {
     const selectedPlayer = this.playerSuggestions.find(player => player.id === playerID);
 
@@ -78,8 +91,6 @@ export class PlayerSummaryComponent implements OnInit {
       this.playerSuggestions = [];
     }
   }
-
-
 
   onEnterPress(): void {
     if (this.playerSuggestions.length > 0) {
@@ -141,11 +152,12 @@ export class PlayerSummaryComponent implements OnInit {
   }
 
   getShotStyle(shot: any) {
-    const courtWidth = 600; // Width of your court images in pixels
-    const courtHeight = 470; // Height of your court images in pixels
+    const ADJUST_HEIGHT = 110;
+    const courtHeight = 600 - (ADJUST_HEIGHT); // Height of your court images in pixels
+    const courtWidth = 550; // Width of your court images in pixels
 
     // Estimate of the actual court dimensions (in feet)
-    const realCourtWidth = 44; // Real-world court width in feet (NBA regulation width)
+    const realCourtWidth = 50; // Real-world court width in feet (NBA regulation width)
     const realCourtHeight = 47; // Real-world court height in feet
 
     // Scaling factors to convert feet to pixels

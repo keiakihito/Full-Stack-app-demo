@@ -1,6 +1,6 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-import {untilDestroyed, UntilDestroy} from '@ngneat/until-destroy';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';  // ✅ Import OnInit
+import { NavigationEnd, Router } from '@angular/router';
+import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
 
 enum Tab {
   FRONTEND,
@@ -14,20 +14,20 @@ enum Tab {
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   readonly tab = Tab;
   currentTab: number = Tab.FRONTEND;
-  
-  constructor(
-    protected router: Router,
-  ) { }
+
+  constructor(protected router: Router) {}
 
   ngOnInit() {
     this.router.events.pipe(untilDestroyed(this)).subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.setActiveTab();  
+        setTimeout(() => {
+          this.setActiveTab();
+        }, 0);
       }
-    }); 
+    });
     this.setActiveTab();
   }
 
@@ -41,5 +41,4 @@ export class AppComponent {
         break;
     }
   }
-
 }
