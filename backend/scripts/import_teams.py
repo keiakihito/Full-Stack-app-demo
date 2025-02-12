@@ -16,7 +16,11 @@ from app.dbmodels.models import Team
 
 # Load teams from JSON file
 def load_teams():
-    with open("../raw_data/teams.json", "r") as f:
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Gets the backend/ directory
+    TEAMS_DATA_PATH = os.path.join(BASE_DIR, "raw_data", "teams.json")
+
+    print("📂 Looking for file at:", TEAMS_DATA_PATH)  # Debugging
+    with open(TEAMS_DATA_PATH, "r") as f:
         teams_data = json.load(f)
 
     for team in teams_data:

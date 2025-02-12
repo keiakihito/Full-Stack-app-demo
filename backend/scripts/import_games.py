@@ -3,6 +3,8 @@ import os
 import django
 import sys
 
+# print("📂 Current Working Directory:", os.getcwd())  # Debugging: Print current directory
+
 # Add the project directory to the Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -15,7 +17,14 @@ from app.dbmodels.models import Game, Team, Player, PlayerStats, Shot  # Import 
 
 # Function to insert games and player stats from JSON
 def load_games():
-    with open("../raw_data/games.json", "r") as f:
+    # Get the absolute path of the project root
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Gets the backend/ directory
+    RAW_DATA_PATH = os.path.join(BASE_DIR, "raw_data", "games.json")  # Points to backend/raw_data/games.json
+
+    print("📂 Looking for file at:", RAW_DATA_PATH)  # Debugging
+
+    # Open the file using the absolute path
+    with open(RAW_DATA_PATH, "r") as f:
         games_data = json.load(f)
 
     for game_data in games_data:
