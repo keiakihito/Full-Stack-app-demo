@@ -56,6 +56,13 @@ To ensure modularity and maintainability, the backend follows SOLID principles a
    - Manages database interactions, ensuring optimized queries.  
    - Uses Django ORM for structured access to player stats and game data.
 
+### Object Pool Design Pattern for DataLoader
+The backend applies the Object Pool Design Pattern to optimize DataLoader instance management:
+
+- Minimizes unnecessary instantiations by reusing existing objects. 
+- Improves performance by reducing memory allocation overhead. 
+- Efficient resource management when handling multiple concurrent requests.
+
 ### Why This Design?
 - **Separation of concerns**: Each layer has a clear responsibility.
 - **Modularity**: Easily testable and extendable without breaking dependencies.
@@ -63,6 +70,8 @@ To ensure modularity and maintainability, the backend follows SOLID principles a
 
 ### **System Architecture Design**
  **[View System Architecture (PDF)](Diagram/SystemArchitectureDiagram.pdf)**  
+
+---
 
 
 ---

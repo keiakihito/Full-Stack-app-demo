@@ -1,6 +1,6 @@
 from django.core.cache import cache
 from app.dbmodels.models import Player as DjangoPlayer, PlayerStats, Shot, Game
-from app.loaders.dataloader import DataLoader
+from app.loaders.dataloader import DataLoaderPool
 from app.classes import PlayerSummaryResponse, CustomGame, CustomShot
 
 class PlayerHandler:
@@ -19,33 +19,37 @@ class PlayerHandler:
             print(f"Cache miss for playerID: {playerID}. Loading from database.")
 
         # Instantiate the DataLoader to fetch data
-        data_loader = DataLoader()
+        data_loader = DataLoaderPool.get_loader()
 
-        # Fetch basic player data (from the database using Django model)
-        player_data = data_loader.get_player_data(playerID)[0]  # Fetch first player entry
+        try:
+            # Fetch basic player data (from the database using Django model)
+            player_data = data_loader.get_player_data(playerID)[0]  # Fetch first player entry
 
-        if debug:
-            print(f"Player Name: {player_data['name']}")
+            if debug:
+                print(f"Player Name: {player_data['name']}")
 
-        # Create CustomGame instances with player stats and shots
-        player_games = self._create_player_games(playerID, data_loader)
+            # Create CustomGame instances with player stats and shots
+            player_games = self._create_player_games(playerID, data_loader)
 
-        # Create the player summary response
-        # player_summary = PlayerSummaryResponse(player_data['name'], player_games)
-        player_summary = PlayerSummaryResponse(player_data['name'])
-        player_summary.add_sub_entity(player_games)
+            # Create the player summary response
+            # player_summary = PlayerSummaryResponse(player_data['name'], player_games)
+            player_summary = PlayerSummaryResponse(player_data['name'])
+            player_summary.add_sub_entity(player_games)
 
-        # Convert the player summary response to a dictionary
-        response_dict = player_summary.to_dict()
+            # Convert the player summary response to a dictionary
+            response_dict = player_summary.to_dict()
 
-        # Store the result in cache before returning it
-        cache_key = f"player_summary_{playerID}"
-        cache.set(cache_key, response_dict, timeout=self.CACHE_TIMEOUT)
+            # Store the result in cache before returning it
+            cache_key = f"player_summary_{playerID}"
+            cache.set(cache_key, response_dict, timeout=self.CACHE_TIMEOUT)
 
-        if debug:
-            print(f"Cached Response Dict: {response_dict}")
+            if debug:
+                print(f"Cached Response Dict: {response_dict}")
 
-        return response_dict
+            return response_dict
+        finally:
+            # Return DataLoader to the pool after use
+            DataLoaderPool.return_loader(data_loader)
 
     def _check_cache(self, playerID):
         """

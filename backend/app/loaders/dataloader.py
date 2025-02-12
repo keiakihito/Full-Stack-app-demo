@@ -17,3 +17,20 @@ class DataLoader:
     def get_participated_game(self, gameID):
         """Fetch game details."""
         return Game.objects.filter(game_id=gameID).values()
+
+
+class DataLoaderPool:
+    """Manages a pool of reusable DataLoader objects to optimize performance."""
+
+    _pool = []
+
+    @classmethod
+    def get_loader(cls):
+        """Retrieve a DataLoader instance from the pool or create a new one."""
+        # _pool is shared list
+        return cls._pool.pop() if cls._pool else DataLoader()
+
+    @classmethod
+    def return_loader(cls, loader):
+        """Return a DataLoader instance to the pool for reuse."""
+        cls._pool.append(loader)
